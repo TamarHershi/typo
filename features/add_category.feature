@@ -10,10 +10,8 @@ Feature: Create Category
   Scenario: Successfully add category
     Given I am on the admin content page
     When I follow "Categories"
-    Then I should see "Categories"
     And I should be on the new category page
-    When I fill in "category_name" with "Baby Stuff"
+    When I fill in "Name" with "Baby Stuff"
     And I press "Save"
-    Then I should be on the admin content page
-    When I follow "Categories"
-    Then I should see "Baby Stuff"
+    Then I should be on the new category page
+    And I should see "Baby Stuff"
