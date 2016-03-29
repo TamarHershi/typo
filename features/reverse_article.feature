@@ -9,7 +9,7 @@ Background:
 
   Scenario: reverse a blog
     Given I am on the manage articles page
-    Then I should see "Welcome"
+    Then I should see "Manage articles"
     And I should see "My Shiny Weblog!"
 
   Scenario: Create blog page not shown when blog created
