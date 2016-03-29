@@ -39,8 +39,8 @@ class Admin::ContentController < Admin::BaseController
 
   def reverse
     @article = Article.find(params[:id])
-    if !@article.nil?
-      text = @atricle.body
+    if @article != nil
+      text = @article.body
       split_text = text.split(' ')
       split_text.reverse
       reverse_string = ""
