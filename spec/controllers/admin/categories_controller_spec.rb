@@ -40,7 +40,7 @@ describe Admin::CategoriesController do
   end
 
   describe "new category" do
-    it "should render :new" do
+    it "it should render new page" do
       get :new
       response.should render_template(:new)
     end
