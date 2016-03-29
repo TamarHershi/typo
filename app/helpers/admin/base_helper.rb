@@ -175,7 +175,8 @@ module Admin::BaseHelper
     html = <<-HTML
       <div class='action'>
         <small>#{link_to_published item}</small> |
-        <small>#{link_to _("Reverse"), :action => 'reverse', :id => item.id}</small> |
+        raise
+        <small>#{link_to _("Reverse"), :action => 'reverse', :id => 2}</small> |
         <small>#{link_to _("Edit"), :action => 'edit', :id => item.id}</small> |
         <small>#{link_to _("Delete"), :action => 'destroy', :id => item.id}</small> |
         #{get_short_url item}

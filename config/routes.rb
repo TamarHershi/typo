@@ -87,6 +87,7 @@ Rails.application.routes.draw do
   # AuthorsController
   match '/author/:id(.:format)', :to => 'authors#show', :format => /rss|atom/, :as => 'xml'
   match '/author(/:id)', :to => 'authors#show', :format => false
+  get '/admin/article/:id/reverse', :to => 'articles#reverse', :format => false
 
   # ThemesController
   scope :controller => 'theme', :filename => /.*/ do
