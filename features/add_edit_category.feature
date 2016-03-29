@@ -1,4 +1,4 @@
-Feature: Create Category
+Feature: Add and Edit Category
   As an author
   In order to know what each blog is about
   I want to create categories
