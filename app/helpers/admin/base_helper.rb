@@ -17,7 +17,7 @@ module Admin::BaseHelper
   end
 
   def show_page_heading
-    return if @page_heading.nil? or @page_heading.blank? 
+    return if @page_heading.nil? or @page_heading.blank?
     heading = "<div class='page-header'>"
     heading << content_tag(:h2, @page_heading.html_safe)
     heading << "</div>"
@@ -175,6 +175,7 @@ module Admin::BaseHelper
     html = <<-HTML
       <div class='action'>
         <small>#{link_to_published item}</small> |
+        <small>#{link_to _("Reverse"), :action => 'reverse', :id => item.id}</small> |
         <small>#{link_to _("Edit"), :action => 'edit', :id => item.id}</small> |
         <small>#{link_to _("Delete"), :action => 'destroy', :id => item.id}</small> |
         #{get_short_url item}

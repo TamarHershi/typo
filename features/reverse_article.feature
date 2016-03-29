@@ -7,13 +7,11 @@ Background:
   Given the blog is set up
   And I am logged into the admin panel
 
-  Scenario: reverse a blog
-    Given I am on the manage articles page
-    Then I should see "Manage articles"
-    And I should see "My Shiny Weblog!"
-
-  Scenario: Create blog page not shown when blog created
-    Given the blog is set up
-    When I am on the home page
-    Then I should not see "My Shiny Weblog!"
-    And I should see "Teh Blag"
+  Scenario: Successfully reverse articles
+    Given I am on the new article page
+    When I fill in "article_title" with "Test"
+    And I fill in "article__body_and_extended_editor" with "Pink shirt"
+    And I press "Publish"
+    Then I should be on the admin content page
+    When I follow "Reverse"
+    Then I should see "shirt Pink"
