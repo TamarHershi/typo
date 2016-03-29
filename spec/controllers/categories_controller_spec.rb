@@ -1,5 +1,27 @@
 require 'spec_helper'
 
+describe CategoriesController, "/create" do
+  let(:params) do
+    {
+      :name => "General",
+      :permalink => "general",
+      :position => 1
+    }
+  end
+  it "should create new category" do
+    post :create, params
+    expect(subject).to change(Category, :count).by(1)
+  end
+end
+
+describe CategoriesController, "/edit" do
+  category = Factory(:category)
+  it "assigns the requested category as @category" do
+    get :edit, :id => category.id
+    expect(assigns(:category)).to eq(category)
+  end
+end
+
 describe CategoriesController, "/index" do
   before do
     Factory(:blog)
@@ -73,14 +95,14 @@ describe CategoriesController, '#show' do
     do_get
     response.should render_template('articles/index')
   end
-  
+
   it 'should render personal when template exists' do
     pending "Stubbing #template_exists is not enough to fool Rails"
     controller.stub!(:template_exists?) \
       .and_return(true)
     do_get
     response.should render_template('personal')
-  end  
+  end
 
   it 'should show only published articles' do
     do_get
@@ -94,7 +116,7 @@ describe CategoriesController, '#show' do
 
   describe "when rendered" do
     render_views
-  
+
     it 'should have a canonical URL' do
       do_get
       response.should have_selector('head>link[href="http://myblog.net/category/personal/"]')
@@ -154,7 +176,7 @@ describe CategoriesController, "password protected article" do
 
     assert_tag :tag => "input",
       :attributes => { :id => "article_password" }
-  end  
+  end
 end
 
 describe CategoriesController, "SEO Options" do
