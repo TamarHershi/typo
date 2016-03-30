@@ -41,12 +41,7 @@ class Admin::ContentController < Admin::BaseController
     @article = Article.find(params[:id])
     if @article != nil
       text = @article.body
-      split_text = text.split
-      split_text.reverse!
-      reverse_string = ""
-      split_text.each do |word|
-        reverse_string = reverse_string + " " + word
-      end
+      reverse_string = text.split.reverse!.join(" ")
       @article.body = reverse_string
       @article.save
     end
