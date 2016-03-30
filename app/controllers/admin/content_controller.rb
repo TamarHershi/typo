@@ -39,14 +39,11 @@ class Admin::ContentController < Admin::BaseController
 
   def reverse
     @article = Article.find(params[:id])
-    if @article != nil
-      text = @article.body
-      reverse_string = text.split.reverse!.join(" ")
-      @article.body = reverse_string
-      @article.save
-    end
+    text = @article.body
+    reverse_string = text.split.reverse!.join(" ")
+    @article.body = reverse_string
+    @article.save
     redirect_to :action => 'index'
-
   end
 
 
