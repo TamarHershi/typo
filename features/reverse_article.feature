@@ -1,6 +1,6 @@
 Feature: Reverse Article
   As an author
-  In order to see the world in a diffrente way
+  In order to see the world in a different way
   I want to reverse a blog
 
 Background:
@@ -14,4 +14,5 @@ Background:
     And I press "Publish"
     Then I should be on the admin content page
     When I follow "Reverse"
+    And I follow "Test"
     Then I should see "shirt Pink"
